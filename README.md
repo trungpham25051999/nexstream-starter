@@ -1,7 +1,7 @@
 # NexStream
 
 **High-Performance Distributed PC/Server Telemetry Platform**  
-**Status:** Architecture accepted · Implementation not started · No benchmarks measured yet
+**Status:** Sprints 01–07 implemented and verified locally · Benchmarks not run yet
 
 NexStream is a C++20/Linux portfolio project built to demonstrate non-blocking network I/O, memory ownership, durable delivery, distributed messaging, backpressure and performance engineering.
 
@@ -38,16 +38,16 @@ flowchart LR
 
 | Repo | Responsibility | Current state |
 |---|---|---|
-| `nexstream-contracts` | Protobuf transport & telemetry API | Planned first |
-| `nexstream-ingest` | TCP/epoll Gateway, auth, Kafka producer | Planned second |
-| `nexstream-publisher` | Linux metrics, SQLite WAL, batch TCP client | Planned third |
-| `nexstream-processor` | Kafka consumer / alerts | Planned |
-| `nexstream-query` | HTTP API / ClickHouse queries | Planned |
-| `nexstream-deploy` | Compose, observability, system docs | Planned |
+| [`nexstream-contracts`](https://github.com/trungpham25051999/nexstream-contracts) | Protobuf transport & telemetry API, golden vectors, CMake package | Sprint 01 verified (`v0.1.0`) |
+| [`nexstream-ingest`](https://github.com/trungpham25051999/nexstream-ingest) | TCP/epoll Gateway, PostgreSQL auth, async Kafka producer | Sprints 02, 04, 05 verified locally |
+| [`nexstream-publisher`](https://github.com/trungpham25051999/nexstream-publisher) | TCP publisher, Linux metrics agent, SQLite durable queue | Sprints 03, 06 verified locally |
+| [`nexstream-processor`](https://github.com/trungpham25051999/nexstream-processor) | Kafka consumer group, CPU/memory alerts, DLQ | Sprint 07 verified locally |
+| [`nexstream-query`](https://github.com/trungpham25051999/nexstream-query) | HTTP API over ClickHouse | Sprint 07 verified locally |
+| [`nexstream-deploy`](https://github.com/trungpham25051999/nexstream-deploy) | Compose stack, ClickHouse/PostgreSQL schemas, E2E tests, system docs | Sprint 07 hardening verified locally |
 
 ## Build and run
 
-No executable has been implemented in this starter kit. Once code is added, each service README must document prerequisites, exact CMake commands, configuration, run instructions, integration dependencies and troubleshooting. **Do not invent working commands or test results.**
+Each service repository documents its prerequisites, exact CMake commands, configuration and tests in its own README/BUILDING file. The full local stack (Redpanda, ClickHouse, PostgreSQL, HAProxy and all services) is started from `nexstream-deploy` with `docker-compose.sprint07.yml`.
 
 ## Roadmap
 
@@ -73,7 +73,7 @@ See [Roadmap](docs/ROADMAP.md), [Testing Plan](tests/TEST_PLAN.md) and [Architec
 ## Evidence
 
 - [Test catalog](tests/TEST_CASES.md) — planned scenarios, not completed assertions.
-- [Test result index](tests/results/README.md) — empty until executed.
+- [Test result index](tests/results/README.md) — executed evidence lives in each service repository under `tests/results/`.
 - [Benchmark methodology](docs/performance/BENCHMARK_PLAN.md) — targets are not achieved results.
 - [Decisions](docs/decisions/README.md) — architecture commitments and unresolved details.
 

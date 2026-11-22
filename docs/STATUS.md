@@ -1,20 +1,20 @@
 # Implementation Status
 
-Updated: 2026-11-02
+Updated: 2026-11-22
 
 | Component | Status | Evidence |
 |---|---|---|
-| Architecture baseline | Agreed in design discussion | `docs/architecture/OVERVIEW.md` |
-| Protobuf contracts | NOT STARTED | None |
-| TCP frame decoder | NOT STARTED | None |
-| epoll gateway | NOT STARTED | None |
-| Publisher TCP client | NOT STARTED | None |
-| Kafka delivery ACK | NOT STARTED | None |
-| HAProxy/TLS + PostgreSQL auth | NOT STARTED | None |
-| SQLite queue | NOT STARTED | None |
-| Metrics collectors | NOT STARTED | None |
-| ClickHouse/processor/query | NOT STARTED | None |
-| Tests/benchmarks | NOT RUN | `tests/results/README.md` |
+| Architecture baseline | VERIFIED | `docs/architecture/OVERVIEW.md` |
+| Protobuf contracts | VERIFIED | `nexstream-contracts` Sprint 01 results |
+| TCP frame decoder | VERIFIED | `nexstream-ingest` Sprint 02 results |
+| epoll gateway | VERIFIED | `nexstream-ingest` Sprint 02 results |
+| Publisher TCP client | VERIFIED | `nexstream-publisher` Sprint 03 results |
+| Kafka delivery ACK | VERIFIED (local Redpanda) | `nexstream-ingest` Sprint 04 results |
+| HAProxy/TLS + PostgreSQL auth | VERIFIED (local) | `nexstream-ingest` Sprint 05 results |
+| SQLite queue | VERIFIED (local) | `nexstream-publisher` Sprint 06 results |
+| Metrics collectors | VERIFIED (CPU/RAM) | `nexstream-publisher` Sprint 06 results |
+| ClickHouse/processor/query | VERIFIED (local, bounded recovery) | `nexstream-deploy` Sprint 07 hardening report |
+| Tests/benchmarks | Tests VERIFIED · Benchmarks NOT RUN | per-repository `tests/results/` |
 
 Status values: NOT STARTED, IN PROGRESS, IMPLEMENTED (untested), VERIFIED, BLOCKED.
 
