@@ -1,6 +1,7 @@
 ---
 name: Bug report
 about: Report a verified defect
+labels: bug
 ---
 
 ## Symptom and expected behavior
