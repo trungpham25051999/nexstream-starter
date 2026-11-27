@@ -1,5 +1,7 @@
 # NexStream
 
+![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?logo=cplusplus) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 **High-Performance Distributed PC/Server Telemetry Platform**  
 **Status:** Sprints 01–07 implemented and verified locally · Benchmarks not run yet
 
@@ -83,4 +85,4 @@ TLS terminates at HAProxy; backend trust boundaries and API-key provisioning are
 
 ## License
 
-Add a license file before public release; license choice is currently open.
+Released under the [MIT License](LICENSE).
